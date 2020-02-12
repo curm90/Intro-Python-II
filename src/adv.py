@@ -36,35 +36,35 @@ room['treasure'].s_to = room['narrow']
 
 player_1 = Player('Liam', room['outside'])
 
+
+def print_room(room):
+    print(f'\n--------------------------------')
+    print(f'\n{room.name}\n')
+    print(f'    {room.description}\n')
+
+
+current_room = player_1.current_room
+
+
+print_room(current_room)
+
+directions = ['n', 's', 'e', 'w']
+
 while True:
     current_room = player_1.current_room
-    print(current_room.name)
-    print(current_room.description)
 
-    user_input = input(f'Where do you want to go {player_1.name} ')
+    user_input = input('--> ')
 
-    if user_input == 'n':
-        if current_room.n_to is not None:
-            player_1.current_room = current_room.n_to
+    if user_input in directions:
+        direction = user_input
+        if getattr(player_1.current_room, f'{direction}_to') == None:
+            print('Sorry! Unable to go that way.', '\n')
         else:
-            print('You cannot go that way')
-    elif user_input == 's':
-        if current_room.s_to is not None:
-            player_1.current_room = current_room.s_to
-        else:
-            print('You cannot go that way')
-    elif user_input == 'e':
-        if current_room.e_to is not None:
-            player_1.current_room = current_room.e_to
-        else:
-            print('You cannot go that way')
-    elif user_input == 'w':
-        if current_room.w_to is not None:
-            player_1.current_room = current_room.w_to
-        else:
-            print('You cannot go that way')
+            player_1.current_room = getattr(
+                player_1.current_room, f'{direction}_to')
+            print_room(player_1.current_room)
     elif user_input == 'q':
         print('Goodbye!')
-        break
+        exit()
     else:
         print('I did not recognise that command')
