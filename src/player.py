@@ -19,6 +19,7 @@ class Player:
         # Else print an error message
         if getattr(self.current_room, f'{direction}_to') is not None:
             self.current_room = getattr(self.current_room, f'{direction}_to')
+            print(self.current_room)
         else:
             print('Sorry! Unable to go that way.', '\n')
 

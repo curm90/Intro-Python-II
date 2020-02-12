@@ -36,16 +36,9 @@ room['treasure'].s_to = room['narrow']
 
 player_1 = Player('Liam', room['outside'])
 
-
-def print_room(room):
-    print(f'\n--------------------------------')
-    print(f'\n{room.name}\n')
-    print(f'    {room.description}\n')
-
-
 current_room = player_1.current_room
 
-print_room(current_room)
+print(current_room)
 
 directions = ['n', 's', 'e', 'w']
 
@@ -55,13 +48,7 @@ while True:
     user_input = input('--> ')
 
     if user_input in directions:
-        direction = user_input
-        if getattr(player_1.current_room, f'{direction}_to') == None:
-            print('Sorry! Unable to go that way.', '\n')
-        else:
-            player_1.current_room = getattr(
-                player_1.current_room, f'{direction}_to')
-            print_room(player_1.current_room)
+        player_1.move_player(user_input)
     elif user_input == 'q':
         print('Goodbye!')
         exit()

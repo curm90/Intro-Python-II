@@ -12,8 +12,9 @@ class Room:
         self.w_to = None
 
     def __str__(self):
-        str = print(f'\n--------------------------------')
-        str += print(f'\n{self.name}\n  {self.description}\n')
+        str = f'''\n--------------------------------'
+                  \n{self.name}
+                  \n  {self.description}\n'''
         return str
 
     def __repr__(self):
