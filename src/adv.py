@@ -43,8 +43,6 @@ print(current_room)
 directions = ['n', 's', 'e', 'w']
 
 while True:
-    current_room = player_1.current_room
-
     user_input = input('--> ')
 
     if user_input in directions:
