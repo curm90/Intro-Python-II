@@ -13,6 +13,15 @@ class Player:
     def __repr__(self):
         return f'Player({self.name}, {self.current_room})'
 
+    def move_player(self, direction):
+        # Check if theres a valid room in the direction
+        # if so, update the current room to new room and print description
+        # Else print an error message
+        if getattr(self.current_room, f'{direction}_to') is not None:
+            self.current_room = getattr(self.current_room, f'{direction}_to')
+        else:
+            print('Sorry! Unable to go that way.', '\n')
+
 # player_1 = Player(1)
 # print(player_1)
 # print(repr(player_1))

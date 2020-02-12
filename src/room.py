@@ -12,7 +12,9 @@ class Room:
         self.w_to = None
 
     def __str__(self):
-        return f'{self.name}\n{self.description}'
+        str = print(f'\n--------------------------------')
+        str += print(f'\n{self.name}\n  {self.description}\n')
+        return str
 
     def __repr__(self):
         return f'Room({self.name}, {self.description})'

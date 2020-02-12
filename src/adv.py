@@ -45,7 +45,6 @@ def print_room(room):
 
 current_room = player_1.current_room
 
-
 print_room(current_room)
 
 directions = ['n', 's', 'e', 'w']
