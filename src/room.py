@@ -6,14 +6,18 @@ class Room:
     def __init__(self, name, description):
         self.name = name
         self.description = description
+        self.n_to = None
+        self.s_to = None
+        self.e_to = None
+        self.w_to = None
 
     def __str__(self):
-        return f'Room: {self.name}\n{self.description}'
+        return f'{self.name}\n{self.description}'
 
     def __repr__(self):
         return f'Room({self.name}, {self.description})'
 
 
-room_1 = Room('Testing', 'This room is for testing purposes')
-print(room_1)
-print(repr(room_1))
+# room_1 = Room('Testing', 'This room is for testing purposes')
+# print(room_1)
+# print(repr(room_1))

@@ -3,16 +3,16 @@
 
 
 class Player:
-    def __init__(self, room):
-        self.room = room
+    def __init__(self, name, starting_room):
+        self.name = name
+        self.current_room = starting_room
 
     def __str__(self):
-        return f'Player is in room: {self.room}'
+        return f'{self.name} is in room: {self.current_room}'
 
     def __repr__(self):
-        return f'Player({self.room})'
+        return f'Player({self.name}, {self.current_room})'
 
-
-player_1 = Player(1)
-print(player_1)
-print(repr(player_1))
+# player_1 = Player(1)
+# print(player_1)
+# print(repr(player_1))
