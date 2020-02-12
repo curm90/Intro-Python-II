@@ -1,2 +1,18 @@
 # Write a class to hold player information, e.g. what room they are in
 # currently.
+
+
+class Player:
+    def __init__(self, room):
+        self.room = room
+
+    def __str__(self):
+        return f'Player is in room: {self.room}'
+
+    def __repr__(self):
+        return f'Player({self.room})'
+
+
+player_1 = Player(1)
+print(player_1)
+print(repr(player_1))
