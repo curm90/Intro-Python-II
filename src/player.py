@@ -40,11 +40,10 @@ class Player:
 
     # WIP
     def drop_item(self, item_to_drop):
-        if item_to_drop in self.items:
-            if len(self.items) == 1:
-                self.current_room.append(item_to_drop)
-            else:
-                player_items = [item.name.lower() for item in self.items]
-                print(player_items)
-        else:
-            print('You do not have that item')
+        player_items = [item.name.lower() for item in self.items]
+        if item_to_drop in player_items:
+            for item in self.items:
+                if item.name.lower() == item_to_drop:
+                    self.current_room.items.append(item)
+                    self.items.remove(item)
+                    print(f'\nYou dropped {item.name}\n')
