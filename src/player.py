@@ -23,21 +23,24 @@ class Player:
 
     def print_inventory(self):
         if len(self.items) > 0:
-            print('You are carrying:\n ' +
+            print('\nYou are carrying:\n  ' +
                   ', '.join([item.name for item in self.items]) + '\n')
         else:
             print('\nYou have 0 items\n')
 
     def get_item(self, item_to_get):
         items_in_room = [item.name.lower() for item in self.current_room.items]
-        for item in items_in_room:
-            if item_to_get == item:
-                self.items.append(item)
-                items_in_room.remove(item)
-                break
-            else:
-                print('item not found')
-                break
+        if item_to_get in items_in_room:
+            for item in self.current_room.items:
+                if item.name.lower() == item_to_get:
+                    player_item = item
+                    self.items.append(player_item)
+                    print(f'\nYou aquired a {player_item.name}\n')
+                    self.current_room.items.remove(player_item)
+
+    # def drop_item(self, item_to_drop):
+    #     items_in_room = [item.name.lower() for item in self.current_room.items]
+    #     print(items_in_room)
 
 
 # player_1 = Player(1)
