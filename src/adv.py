@@ -53,7 +53,6 @@ player_1 = Player('Liam', room['outside'])
 current_room = player_1.current_room
 
 print(current_room)
-print(current_room.items)
 
 directions = ['n', 's', 'e', 'w']
 
