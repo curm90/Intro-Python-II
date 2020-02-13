@@ -38,6 +38,7 @@ class Player:
                     print(f'\nYou aquired a {player_item.name}\n')
                     self.current_room.items.remove(player_item)
 
+    # WIP
     def drop_item(self, item_to_drop):
         if item_to_drop in self.items:
             if len(self.items) == 1:
