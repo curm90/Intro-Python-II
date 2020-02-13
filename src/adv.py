@@ -42,10 +42,10 @@ key = Item('Key', 'I wonder what this could be used for')
 lighter = Item('Lighter', 'This could come in handy')
 
 room['outside'].items.append(rock)
+room['outside'].items.append(sword)
 room['foyer'].items.append(lighter)
-room['overlook'].items.append(book)
+room['foyer'].items.append(book)
 room['narrow'].items.append(key)
-room['treasure'].items.append(sword)
 
 
 player_1 = Player('Liam', room['outside'])
@@ -57,14 +57,20 @@ print(current_room)
 directions = ['n', 's', 'e', 'w']
 
 while True:
-    user_input = input('--> ')
+    user_input = input('--> ').strip().lower().split(' ')
 
-    if user_input in directions:
-        player_1.move_player(user_input)
-    elif user_input == 'i':
-        player_1.print_inventory()
-    elif user_input == 'q':
-        print('Goodbye!')
-        exit()
+    if len(user_input) == 1:
+        if user_input[0] in directions:
+            player_1.move_player(user_input[0])
+        elif user_input[0] == 'i':
+            player_1.print_inventory()
+        elif user_input[0] == 'q':
+            print('Goodbye!')
+            exit()
+        else:
+            print('I did not recognise that command')
+    elif len(user_input) == 2:
+        if user_input[0] == 'get':
+            player_1.get_item(user_input[1])
     else:
         print('I did not recognise that command')

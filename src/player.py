@@ -25,6 +25,19 @@ class Player:
         if len(self.items) > 0:
             print('You are carrying:\n ' +
                   ', '.join([item.name for item in self.items]) + '\n')
+        else:
+            print('\nYou have 0 items\n')
+
+    def get_item(self, item_to_get):
+        items_in_room = [item.name.lower() for item in self.current_room.items]
+        for item in items_in_room:
+            if item_to_get == item:
+                self.items.append(item)
+                items_in_room.remove(item)
+                break
+            else:
+                print('item not found')
+                break
 
 
 # player_1 = Player(1)

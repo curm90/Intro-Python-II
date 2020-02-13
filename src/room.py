@@ -16,7 +16,7 @@ class Room:
         str = f'''\n--------------------------------'
                   \n{self.name}
                   \n  {self.description}\n
-                  \n{self.get_exits()}\n
+                  \n{self.get_paths()}\n
                   {self._get_item_string()}'''
         return str
 
@@ -25,21 +25,21 @@ class Room:
 
     def _get_item_string(self):
         if len(self.items) > 0:
-            return '\n' + ', '.join([item.name for item in self.items]) + '\n'
+            return '\nItems in room:\n\n     ' + ', '.join([item.name for item in self.items]) + '\n'
         else:
             return ''
 
-    def get_exits(self):
-        exits = []
+    def get_paths(self):
+        paths = []
         if self.n_to is not None:
-            exits.append('n')
+            paths.append('n')
         if self.s_to is not None:
-            exits.append('s')
+            paths.append('s')
         if self.e_to is not None:
-            exits.append('e')
+            paths.append('e')
         if self.w_to is not None:
-            exits.append('w')
-        return 'Exits: ' + ', '.join(exits)
+            paths.append('w')
+        return 'Paths: ' + ', '.join(paths)
 
 
 # room_1 = Room('Testing', 'This room is for testing purposes')
