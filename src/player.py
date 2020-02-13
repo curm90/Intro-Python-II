@@ -38,11 +38,12 @@ class Player:
                     print(f'\nYou aquired a {player_item.name}\n')
                     self.current_room.items.remove(player_item)
 
-    # def drop_item(self, item_to_drop):
-    #     items_in_room = [item.name.lower() for item in self.current_room.items]
-    #     print(items_in_room)
-
-
-# player_1 = Player(1)
-# print(player_1)
-# print(repr(player_1))
+    def drop_item(self, item_to_drop):
+        if item_to_drop in self.items:
+            if len(self.items) == 1:
+                self.current_room.append(item_to_drop)
+            else:
+                player_items = [item.name.lower() for item in self.items]
+                print(player_items)
+        else:
+            print('You do not have that item')

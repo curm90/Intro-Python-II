@@ -72,7 +72,7 @@ while True:
     elif len(user_input) == 2:
         if user_input[0] == 'get':
             player_1.get_item(user_input[1])
-        # elif user_input[0] == 'drop':
-        #     player_1.drop_item(user_input[1])
+        elif user_input[0] == 'drop':
+            player_1.drop_item(user_input[1])
     else:
         print('I did not recognise that command')
