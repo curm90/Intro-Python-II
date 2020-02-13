@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -34,11 +35,25 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+sword = Item('Sword', 'An old rusty sword')
+book = Item('Book', 'A book about treasure')
+rock = Item('Rock', 'This is a rock')
+key = Item('Key', 'I wonder what this could be used for')
+lighter = Item('Lighter', 'This could come in handy')
+
+room['outside'].items.append(rock)
+room['foyer'].items.append(lighter)
+room['overlook'].items.append(book)
+room['narrow'].items.append(key)
+room['treasure'].items.append(sword)
+
+
 player_1 = Player('Liam', room['outside'])
 
 current_room = player_1.current_room
 
 print(current_room)
+print(current_room.items)
 
 directions = ['n', 's', 'e', 'w']
 
@@ -47,6 +62,8 @@ while True:
 
     if user_input in directions:
         player_1.move_player(user_input)
+    elif user_input == 'i':
+        player_1.print_inventory()
     elif user_input == 'q':
         print('Goodbye!')
         exit()
